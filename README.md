@@ -6,6 +6,9 @@ A traffic generator can generate traffic over a network, with the purpose of:
 * measuring the network's capabilities (bandwidth, packet loss, etc.)
 
 We created a Service that is orchestratable by a MANO platform, specifically the [ETSI Open Source MANO](https://osm.etsi.org/) and it uses Virtual Machines. A container-based version is in development, but it isn't ready yet. 
+The descriptors found here can be used with OSM up to version 8, but simple translation into formats used by later OSM versions will lead to correct deployment.
+
+The image used is a simple Ubuntu 18.04 cloud image, but this was used for demo purposes. Other images can be used as well with proper modification of the cloud-init for different distros.
 
 The proposed Traffic Generator Service is based on the [iperf3](https://iperf.fr/) software. 
 
