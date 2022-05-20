@@ -1,0 +1,12 @@
+#cloud-config
+password: password
+chpasswd: { expire: False }
+ssh_pwauth: True
+
+packages:
+ - iperf3
+
+runcmd:
+ - sudo iperf3 -s -D
+ - cd /home/ubuntu
+ - sudo touch /home/ubuntu/done

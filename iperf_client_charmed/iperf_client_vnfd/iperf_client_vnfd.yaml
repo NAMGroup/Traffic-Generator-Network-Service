@@ -1,0 +1,63 @@
+vnfd:vnfd-catalog:
+  vnfd:
+  - connection-point:
+    - name: vnf-cp0
+    description: VM with iperf3
+    id: iperfClientCharmedVNF
+    mgmt-interface:
+      cp: vnf-cp0
+    name: iperfClientCharmedVNF
+    short-name: iperfClientCharmedVNF
+    vdu:
+    - cloud-init-file: cloud-config.txt
+      count: 1
+      description: iperfClientCharmedVNF-VM
+      id: iperfClientCharmedVNF-VM
+      image: ubuntu-18.04-x64
+      interface:
+      - external-connection-point-ref: vnf-cp0
+        name: eth0
+        type: EXTERNAL
+        virtual-interface:
+          type: PARAVIRT
+      name: iperfClientCharmedVNF-VM
+      vm-flavor:
+        memory-mb: 4096
+        storage-gb: 10
+        vcpu-count: 1
+    vendor: UoP
+    version: '1.0'
+    vnf-configuration:
+      config-primitive:
+      - name: goclient
+        parameter:
+        - data-type: STRING
+          default-value: ''
+          name: gateway
+        - data-type: STRING
+          default-value: ''
+          name: server_ip
+        - data-type: STRING
+          default-value: ''
+          name: mode
+        - data-type: STRING
+          default-value: ''
+          name: bandwidth
+        - data-type: STRING
+          default-value: ''
+          name: duration
+        - data-type: STRING
+          default-value: ''
+          name: direction
+      initial-config-primitive:
+      - name: config
+        parameter:
+        - name: ssh-hostname
+          value: <rw_mgmt_ip>
+        - name: ssh-username
+          value: ubuntu
+        - name: ssh-password
+          value: password
+        seq: '1'
+      juju:
+        charm: iperfclient

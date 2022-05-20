@@ -1,0 +1,29 @@
+nsd:nsd-catalog:
+  nsd:
+  - constituent-vnfd:
+    - member-vnf-index: 1
+      vnfd-id-ref: iperfClientCharmedVNF
+    description: NS creating a VM with iperf3 vlan1001
+    id: iperfClientCharmedNS
+    name: iperfClientCharmedNS
+    short-name: iperfClientCharmedNS
+    vld:
+    - id: OSMFIVE_selfservice01
+      mgmt-network: 'true'
+      name: OSMFIVE_selfservice01
+      short-name: OSMFIVE_selfservice01
+      type: ELAN
+      vim-network-name: OSMFIVE_selfservice01
+      vnfd-connection-point-ref:
+      - member-vnf-index-ref: 1
+        vnfd-connection-point-ref: vnf-cp0
+        vnfd-id-ref: iperfClientCharmedVNF
+    - id: vlan1001
+      name: vlan1001
+      short-name: vlan1001
+      type: ELAN
+      vim-network-name: provider10_vlan1001
+      vnfd-connection-point-ref:
+      - member-vnf-index-ref: 1
+        vnfd-connection-point-ref: vnf-cp1
+        vnfd-id-ref: iperfClientCharmedVNF

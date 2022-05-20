@@ -1,0 +1,7 @@
+#cloud-config
+password: password
+chpasswd: { expire: False }
+ssh_pwauth: True
+
+packages:
+ - iperf3

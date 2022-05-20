@@ -1,0 +1,23 @@
+nsd:nsd-catalog:
+    nsd:
+    -   id: iperfServerCharmedNS
+        name: iperfServerCharmedNS
+        short-name: iperfServerCharmedNS
+        description: NS creating a VM with iperf3 Server
+
+
+        constituent-vnfd:
+        -   member-vnf-index: 1
+            vnfd-id-ref: iperfServerCharmedVNF
+
+        vld:
+        -   id: public 
+            name: public
+            short-name: public
+            type: ELAN
+            mgmt-network: 'true'
+            vim-network-name: 'public'
+            vnfd-connection-point-ref:
+            -   member-vnf-index-ref: 1
+                vnfd-id-ref: iperfServerCharmedVNF
+                vnfd-connection-point-ref: vnf-cp0
